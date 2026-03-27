@@ -84,7 +84,7 @@ export default function CaseStudiesSection({ onProjectClick: _onProjectClick }: 
   ]
 
   return (
-    <section id="section-7" className="section flex items-center justify-center relative overflow-hidden">
+    <section id="section-7" className="section flex items-center justify-center relative">
       <div className="absolute inset-0 electric-grid opacity-20" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
@@ -110,8 +110,17 @@ export default function CaseStudiesSection({ onProjectClick: _onProjectClick }: 
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          <div className="overflow-x-auto">
-            <table className="w-full min-w-[900px] border-separate border-spacing-0">
+          <div className="flex items-center justify-between mb-4 md:hidden">
+            <div className="text-sm text-gray-400">Прокрутите вправо для просмотра</div>
+            <div className="text-xs text-neon-green font-bold">SWIPE →</div>
+          </div>
+
+          {/* Horizontal scroll on mobile/tablet */}
+          <div
+            className="w-full overflow-x-auto overscroll-x-contain touch-pan-x pb-2"
+            style={{ WebkitOverflowScrolling: "touch" }}
+          >
+            <table className="w-full min-w-[1100px] border-separate border-spacing-0">
               <thead>
                 <tr>
                   <th className="text-left text-sm text-gray-400 font-medium p-3 border-b border-neon-green/20">

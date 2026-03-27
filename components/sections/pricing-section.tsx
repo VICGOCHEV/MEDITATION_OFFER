@@ -72,33 +72,15 @@ export default function PricingSection() {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          <div className="overflow-x-auto">
-            <table className="w-full min-w-[900px] border-separate border-spacing-0">
-              <thead>
-                <tr>
-                  <th className="text-left text-sm text-gray-400 font-medium p-3 border-b border-neon-green/20">
-                    Пакет
-                  </th>
-                  <th className="text-left text-sm text-gray-400 font-medium p-3 border-b border-neon-green/20">
-                    Стоимость
-                  </th>
-                  <th className="text-left text-sm text-gray-400 font-medium p-3 border-b border-neon-green/20">
-                    Описание
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {rows.map((row, idx) => (
-                  <tr key={idx} className="hover:bg-neon-green/5 transition-colors">
-                    <td className="p-3 text-white border-b border-neon-green/10 align-top">{row.pkg}</td>
-                    <td className="p-3 text-neon-green font-bold border-b border-neon-green/10 align-top">{row.price}</td>
-                    <td className="p-3 text-gray-300 border-b border-neon-green/10 align-top leading-relaxed">
-                      {row.desc}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+          {/* Cards layout (mobile/tablet safe) */}
+          <div className="space-y-4">
+            {rows.map((row, idx) => (
+              <div key={idx} className="cool-card p-4 rounded-lg">
+                <div className="text-white font-bold leading-snug mb-2">{row.pkg}</div>
+                <div className="text-neon-green font-bold mb-3">{row.price}</div>
+                <div className="text-gray-300 leading-relaxed text-sm">{row.desc}</div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
