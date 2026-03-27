@@ -1,0 +1,207 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --neon-green: #c4fb00;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  cursor: none;
+}
+
+html {
+  cursor: none;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  background-color: #000000;
+  color: #ffffff;
+  line-height: 1.6;
+  overflow-x: hidden;
+  position: relative;
+  cursor: none;
+}
+
+/* Упрощенный electric background effect */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 20% 80%, rgba(196, 251, 0, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(196, 251, 0, 0.03) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.font-helvetica {
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+.text-neon-green {
+  color: var(--neon-green);
+  text-shadow: 0 0 10px rgba(196, 251, 0, 0.5);
+}
+
+.bg-neon-green {
+  background-color: var(--neon-green);
+  box-shadow: 0 0 20px rgba(196, 251, 0, 0.3);
+}
+
+.border-neon-green {
+  border-color: var(--neon-green);
+  box-shadow: 0 0 10px rgba(196, 251, 0, 0.2);
+}
+
+.section {
+  position: relative;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 0.9;
+}
+
+/* Упрощенные анимации */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes electricSlide {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes neonFlicker {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.9;
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.animate-electric-slide {
+  animation: electricSlide 0.8s ease-out forwards;
+}
+
+.animate-neon-flicker {
+  animation: neonFlicker 3s ease-in-out infinite;
+}
+
+/* Упрощенные hover effects */
+.hover-electric:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(196, 251, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+/* Electric text effect - упрощенный */
+.electric-text {
+  color: var(--neon-green);
+  text-shadow: 0 0 10px rgba(196, 251, 0, 0.5);
+}
+
+/* Упрощенный electric grid */
+.electric-grid {
+  background-image: linear-gradient(rgba(196, 251, 0, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(196, 251, 0, 0.05) 1px, transparent 1px);
+  background-size: 100px 100px;
+}
+
+/* Cool card effects - упрощенные */
+.cool-card {
+  background: linear-gradient(135deg, rgba(196, 251, 0, 0.08) 0%, rgba(0, 0, 0, 0.8) 100%);
+  border: 1px solid rgba(196, 251, 0, 0.2);
+  backdrop-filter: blur(5px);
+  transition: all 0.3s ease;
+}
+
+.cool-card:hover {
+  border-color: rgba(196, 251, 0, 0.4);
+  box-shadow: 0 0 20px rgba(196, 251, 0, 0.2);
+}
+
+/* Скрываем курсор */
+* {
+  cursor: none !important;
+}
+
+/* Оптимизированные парящие анимации */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px) translateX(213px);
+  }
+  50% {
+    transform: translateY(-15px) translateX(213px);
+  }
+}
+
+@keyframes floatGentle {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.animate-float {
+  animation: float 8s ease-in-out infinite;
+}
+
+.animate-float-gentle {
+  animation: floatGentle 6s ease-in-out infinite;
+}
+
+/* Убираем сложные эффекты на мобильных */
+@media (max-width: 768px) {
+  .electric-grid {
+    background: none;
+  }
+
+  .animate-float,
+  .animate-float-gentle {
+    animation: none;
+  }
+
+  .glitch::before,
+  .glitch::after {
+    display: none;
+  }
+}
